@@ -1,4 +1,3 @@
-
 export const isLoadingSelector = (store) => store.reducer.isLoading;
 export const dataSelector = (store) => store.reducer.data;
 export const currentPageSelector = (store) => store.reducer.currentPage;
