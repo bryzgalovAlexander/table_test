@@ -1,21 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-
-    testData: [
-        {
-            id: 1,
-            name: 'one',
-        },
-        {
-            id: 2,
-            name: 'two',
-        },
-        {
-            id: 3,
-            name: 'three',
-        },
-    ],
     isActiveModal: false,
     modalData: [],
     error: '',
@@ -107,5 +92,4 @@ export const {
     setModal,
     findTask,
     reorder,
-    testReorder,
 } = tableSlice.actions

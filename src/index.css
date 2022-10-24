@@ -2,6 +2,11 @@
   font-family: Roboto;
 }
 
+.svg {
+  width: 20px;
+  height: 20px;
+}
+
 .main-container {
   display: flex;
   justify-content: center;
@@ -68,17 +73,27 @@ table {
   font-size: 12px;
   background: #ffffff;
   text-align: center;
-  border-collapse: collapse;
+  border-collapse: initial;
   width: 1000px;
 }
 
+.th-id {
+  width: 30px;
+  background: white;
+  cursor: pointer;
+  padding: 10px;
+  border:  1px solid darkslategray;
+}
+
 th {
+  background: white;
   cursor: pointer;
   padding: 10px;
   border:  1px solid darkslategray;
 }
 
 td {
+  background: white;
   padding: 10px;
   border:  1px solid darkslategray;
 }

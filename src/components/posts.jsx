@@ -17,6 +17,7 @@ import {
     isSortedSelector,
     perPageSelector
 } from "../redux/saga/selectors";
+import SvgSelector from "./svgSelector";
 
 export const Posts = () => {
 
@@ -48,9 +49,21 @@ export const Posts = () => {
                 <table>
                     <thead>
                     <tr>
-                        <th onClick={() => isSorted ? dispatch(setSortingToSmall()) : dispatch(setSortingToBig())}>id</th>
-                        <th onClick={() => isSortedByTitle ? dispatch(setSortingTitleToSmall()) : dispatch(setSortingTitleToBig())}>Title</th>
-                        <th>Body</th>
+                        <th
+                            onClick={() => isSorted ? dispatch(setSortingToSmall()) : dispatch(setSortingToBig())}
+                            className={'th-id'}
+                        >
+                            { isSorted ? <SvgSelector id={'arrow-down'}/> : <SvgSelector id={'arrow-up'}/> }
+                            id
+                        </th>
+                        <th
+                            onClick={() => isSortedByTitle ? dispatch(setSortingTitleToSmall()) : dispatch(setSortingTitleToBig())}
+                        >
+                            { isSortedByTitle ? <SvgSelector id={'arrow-up'}/> : <SvgSelector id={'arrow-down'}/> }
+                            Title</th>
+                        <th>
+                            Body
+                        </th>
                     </tr>
                     </thead>
                     <Droppable droppableId="droppable-1"
@@ -64,11 +77,13 @@ export const Posts = () => {
                                     index={index}
                                 >
                                     {provider => (
-                                        <tr key={item.id}
+                                        <tr
+                                            key={item.id}
                                             onClick={() => dispatch(findTask(item.id))}
                                             {...provider.draggableProps}
                                             ref={provider.innerRef}
-                                            {...provider.dragHandleProps}>
+                                            {...provider.dragHandleProps}
+                                        >
                                             <td >{item.id}</td>
                                             <td >{item.title}</td>
                                             <td >{item.body}</td>
